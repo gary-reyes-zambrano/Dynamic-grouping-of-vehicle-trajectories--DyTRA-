@@ -34,7 +34,7 @@
   + `rango`: Tamaño de la celda en largo y ancho (en grados decimales, se debe realizar la conversión si fuera necesario)
   + `PER`: Numero del periodo en el que se realizará el análisis (Cada valor considera 5 ciclos, si se establece `tiempo_a_ejecutar_algoritmo` en 3 minutos la duración de cada periodo durará 15 minutos, cada valor representa un periodo distinto; para PER=1 desde 0:00:00 hasta 0:15:00; para PER=2 desde 0:15:00 hasta 0:30:00...)
 ### Ejecución del agrupamiento para cada periodo de tiempo
-+ Habiendo establecido las parametrizaciones y teniendo seleccionado un numero de periodo válido (no sea inferior ni superior al periodo de tiempo de abarca los datos) se puede realizar la ejecución de todas las sentencias del script principal, las cuales incluirán:
++ Habiendo establecido las parametrizaciones y teniendo seleccionado un numero de periodo válido (no sea inferior ni superior al periodo de tiempo de abarca los datos) se puede realizar la ejecución de todas las sentencias del script principal ( `DyTRA.R`), las cuales incluirán:
   + Cargado en memoria de las funciones a utilizar
   + Cargado de las parametrizaciones
   + Consulta a la base de datos
