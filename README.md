@@ -12,7 +12,7 @@
 
   En base al área geográfica donde se analizarán los datos, se realiza una división del área en zonas mas pequeñas denominadas *celdas* con un tamaño de 200x200 metros, la metodología realiza el análisis de lo que va ocurriendo en cada una de las celdas para considerar la representación de cada área en vez de cada trayectoria vehicular por separado. Este proceso se realiza de manera secuencial, estas celdas consolidan la información de todos los puntos GPS que recaen sobre el área de cada celda y extrae la información resumen de los puntos que se ubican dentro de los límites de las celdas analizadas.
 
-  ![Celdas_Batch](C:\Users\Ricardo\Documents\Git\Nueva carpeta\images\Celdas_Batch.png)
+  ![Celdas_Batch](https://github.com/gary-reyes-zambrano/Dynamic-grouping-of-vehicle-trajectories--DyTRA-/blob/master/images/Celdas_Batch.png?raw=true)
 
 + Agrupamiento basado en distancia
 
@@ -66,7 +66,7 @@
 + Independientemente si se han tratado las agrupaciones poco densas o no, este proceso tomará la información de las agrupaciones densas (y poco densas según se haya agregado en el proceso anterior) y se representará en el mapa con un color de acuerdo a la escala de su velocidad
 + Se generará un fichero `.html` donde se puede visualizar el resultado de los agrupamientos con la información del primero ciclo hasta el último ciclo
 
-![img3-info-mapaA](C:\Users\Ricardo\Documents\Git\Nueva carpeta\images\img3-info-mapaA.png)
+![img3-info-mapaA](https://github.com/gary-reyes-zambrano/Dynamic-grouping-of-vehicle-trajectories--DyTRA-/blob/master/images/img3-info-mapaA.png?raw=true)
 
-![img3-info-mapaB](C:\Users\Ricardo\Documents\Git\Nueva carpeta\images\img3-info-mapaB.png)
+![img3-info-mapaB](https://github.com/gary-reyes-zambrano/Dynamic-grouping-of-vehicle-trajectories--DyTRA-/blob/master/images/img3-info-mapaB.png?raw=true)
 
