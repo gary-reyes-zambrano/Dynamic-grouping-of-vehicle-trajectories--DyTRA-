@@ -1,8 +1,12 @@
-# Método para el agrupamiento dinámico de celdas resúmenes (con información de trayectorias GPS) según sus rangos de velocidad 
+# Método para el agrupamiento dinámico de celdas - DyTRA 
+
+<!---
+Información de celdas resúmenes (contiene información de trayectorias GPS, y los rangos de velocidadd promedio)
+-->
 
 ## Requisitos
 + Base de datos PostgreSQL con tablas que incluyan datos de trayectorias vehiculares
-+ Los datos deben contener los campos: latitud, longitud, velocidad, tiempo, id_traycetoria.
++ Los datos deben contener los campos: latitud, longitud, velocidad, tiempo, id_trayectoria.
 + RStudio 
 + R 4.1+
 
@@ -24,7 +28,7 @@
 
 ## Pasos para la ejecución
 ### Preparación del entorno
-+ Se debe establecer las parametrizaciones con las que se desea ejecutar el algoritmo en el script principal:
++ Se debe establecer las parametrizaciones con las que se desea ejecutar el algoritmo en el script principal (`DyTRA.R`):
   + Credenciales del repositorio (PostgreSQL)
   + Elección del Conjunto de datos a recuperar (previamente debe estar creadas las sentencias para la realización de la consulta) (`location`)
   + Mínimos y máximos de la dimensión "Velocidad" a analizar en el agrupamiento (`min_v`,`max_v`)
@@ -33,8 +37,11 @@
   + `tiempo_a_ejecutar_algoritmo`: Tiempo de duración de cada ciclo (en minutos)
   + `rango`: Tamaño de la celda en largo y ancho (en grados decimales, se debe realizar la conversión si fuera necesario)
   + `PER`: Numero del periodo en el que se realizará el análisis (Cada valor considera 5 ciclos, si se establece `tiempo_a_ejecutar_algoritmo` en 3 minutos la duración de cada periodo durará 15 minutos, cada valor representa un periodo distinto; para PER=1 desde 0:00:00 hasta 0:15:00; para PER=2 desde 0:15:00 hasta 0:30:00...)
+
+Nota: El script contiene valores por defecto para esats variables
+
 ### Ejecución del agrupamiento para cada periodo de tiempo
-+ Habiendo establecido las parametrizaciones y teniendo seleccionado un numero de periodo válido (no sea inferior ni superior al periodo de tiempo de abarca los datos) se puede realizar la ejecución de todas las sentencias del script principal ( `DyTRA.R`), las cuales incluirán:
++ Habiendo establecido las parametrizaciones y teniendo seleccionado un numero de periodo válido (no sea inferior ni superior al periodo de tiempo que abarca los datos) se puede realizar la ejecución de todas las sentencias del script principal ( `DyTRA.R`), las cuales incluirán:
   + Cargado en memoria de las funciones a utilizar
   + Cargado de las parametrizaciones
   + Consulta a la base de datos
@@ -64,7 +71,7 @@
 ### Representación y visualización en los mapas
 
 + Independientemente si se han tratado las agrupaciones poco densas o no, este proceso tomará la información de las agrupaciones densas (y poco densas según se haya agregado en el proceso anterior) y se representará en el mapa con un color de acuerdo a la escala de su velocidad
-+ Se generará un fichero `.html` donde se puede visualizar el resultado de los agrupamientos con la información del primero ciclo hasta el último ciclo
++ Se generará un fichero `.html` por periodo (por cada ejecución) donde se puede visualizar el resultado de los agrupamientos con la información acumulada desde el primer ciclo hasta el último ciclo
 
 ![img3-info-mapaA](https://github.com/gary-reyes-zambrano/Dynamic-grouping-of-vehicle-trajectories--DyTRA-/blob/master/images/img3-info-mapaA.png?raw=true)
 
